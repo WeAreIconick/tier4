@@ -22,7 +22,7 @@ function tier4_scripts() {
 	wp_enqueue_style( 'tier4-fonts', 'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap', array(), null );
 
 	// Enqueue theme stylesheet.
-	wp_enqueue_style( 'tier4-style', get_stylesheet_uri(), array(), '1.0' );
+	wp_enqueue_style( 'tier4-style', get_stylesheet_uri(), array(), filemtime( get_stylesheet_directory() . '/style.css' ) );
 }
 add_action( 'wp_enqueue_scripts', 'tier4_scripts' );
 

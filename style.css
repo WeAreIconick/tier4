@@ -16,28 +16,105 @@ Text Domain: tier4
 /* Reset & Base Styles handled by Global Styles (theme.json) but we can add specifics here */
 
 /* ==========================================================================
-   Utility Classes
+   Utility Classes (Tailwind-inspired)
    ========================================================================== */
 
+/* Positioning */
+.relative { position: relative !important; }
+.absolute { position: absolute !important; }
+.-bottom-4 { bottom: -1rem !important; }
+.-right-4 { right: -1rem !important; }
+.z-10 { z-index: 10 !important; }
+.z-50 { z-index: 50 !important; }
+.top-0 { top: 0 !important; }
+
+/* Aspect Ratio */
+.aspect-square { aspect-ratio: 1 / 1 !important; }
+.aspect-3-4 { aspect-ratio: 3 / 4 !important; }
+
+/* Display */
+.overflow-hidden { overflow: hidden !important; }
+.object-cover { object-fit: cover !important; }
+.flex { display: flex !important; }
+.items-center { align-items: center !important; }
+.justify-between { justify-content: space-between !important; }
+.gap-4 { gap: 1rem !important; }
+
+/* Spacing */
+.p-0 { padding: 0 !important; }
+.p-4 { padding: 1rem !important; }
+.pb-4 { padding-bottom: 1rem !important; }
+.mb-6 { margin-bottom: 1.5rem !important; }
+
 /* Borders */
+.border-black {
+    border-color: #000000 !important;
+    border-color: var(--wp--preset--color--black) !important;
+}
+
+.border-4 {
+    border-width: 4px !important;
+    border-style: solid !important;
+}
+
+.border-8 {
+    border-width: 8px !important;
+    border-style: solid !important;
+}
+
+.border-t-4 { border-top-width: 4px !important; border-top-style: solid !important; }
+.border-t-8 { border-top-width: 8px !important; border-top-style: solid !important; }
+
+.border-b-4 { border-bottom-width: 4px !important; border-bottom-style: solid !important; }
+.border-b-8 { border-bottom-width: 8px !important; border-bottom-style: solid !important; }
+
+.border-l-4 { border-left-width: 4px !important; border-left-style: solid !important; }
+.border-l-8 { border-left-width: 8px !important; border-left-style: solid !important; }
+
+.border-r-4 { border-right-width: 4px !important; border-right-style: solid !important; }
+.border-r-8 { border-right-width: 8px !important; border-right-style: solid !important; }
+
+/* Backgrounds */
+.bg-cyan-400 {
+    background-color: var(--wp--preset--color--accent) !important;
+}
+
+.bg-black {
+    background-color: var(--wp--preset--color--black) !important;
+}
+
+.bg-white {
+    background-color: var(--wp--preset--color--background) !important;
+}
+
+/* Text */
+.text-white {
+    color: var(--wp--preset--color--background) !important;
+}
+
+.text-black {
+    color: var(--wp--preset--color--black) !important;
+}
+
+/* Legacy Support (Mapping old classes to new structure if needed, or keeping for compatibility) */
 .has-border-primary {
-    border: 8px solid var(--wp--preset--color--primary);
+    border: 4px solid var(--wp--preset--color--black);
 }
 
 .has-border-primary-bottom {
-    border-bottom: 8px solid var(--wp--preset--color--primary);
+    border-bottom: 4px solid var(--wp--preset--color--black);
 }
 
 .has-border-primary-left {
-    border-left: 8px solid var(--wp--preset--color--primary);
+    border-left: 4px solid var(--wp--preset--color--black);
 }
 
 .has-border-thick-bottom {
-    border-bottom-width: 8px;
+    border-bottom-width: 4px;
 }
 
 .has-border-thick-top {
-    border-top-width: 8px;
+    border-top-width: 4px;
 }
 
 /* Spacing - Padding */
@@ -148,28 +225,34 @@ Text Domain: tier4
     line-height: 1.1 !important;
 }
 
-/* ==========================================================================
-   Navigation / Mega Menu Handling
-   ========================================================================== */
-.wp-block-navigation .wp-block-navigation-item {
-    border: 4px solid var(--wp--preset--color--primary);
+/* Navigation Styles matching Header.tsx */
+.wp-block-navigation .wp-block-navigation-item__content {
+    padding: 12px 24px;
+    border: 4px solid var(--wp--preset--color--black);
     background-color: var(--wp--preset--color--background);
-    transition: all 0.2s ease;
-}
-
-.wp-block-navigation .wp-block-navigation-item:hover {
-    background-color: var(--wp--preset--color--primary);
-    color: var(--wp--preset--color--background);
-}
-
-.wp-block-navigation .wp-block-navigation-item a:hover {
-    color: var(--wp--preset--color--background);
+    color: var(--wp--preset--color--black);
+    font-weight: 700;
+    text-transform: uppercase;
     text-decoration: none;
+    transition: all 0.2s ease;
+    display: inline-block;
+}
+
+.wp-block-navigation .wp-block-navigation-item__content:hover,
+.wp-block-navigation .wp-block-navigation-item.current-menu-item .wp-block-navigation-item__content {
+    background-color: var(--wp--preset--color--black);
+    color: var(--wp--preset--color--background);
+}
+
+/* Remove default block styles that might interfere */
+.wp-block-navigation .wp-block-navigation-item {
+    background: none;
+    border: none;
 }
 
 /* Mega Menu Container Styles */
 .is-mega-menu .wp-block-navigation__submenu-container {
-    border: 4px solid var(--wp--preset--color--primary);
+    border: 4px solid var(--wp--preset--color--black);
     border-top: none;
     background-color: var(--wp--preset--color--background);
     padding: 2rem;
@@ -177,50 +260,143 @@ Text Domain: tier4
     /* Grid Layout for Mega Menu */
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    gap: 2rem;
     
     /* Positioning */
-    min-width: 500px;
+    width: 600px; /* Fixed width as per React component */
     left: 50%;
     transform: translateX(-50%);
     top: 100%;
 }
 
-/* Style for links inside Mega Menu */
-.is-mega-menu .wp-block-navigation__submenu-container .wp-block-navigation-item {
-    border: none;
-    background-color: transparent;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+/* Mega Menu Columns (Nested Submenus) */
+.is-mega-menu-column {
+    display: block;
+    width: 100%;
 }
 
-.is-mega-menu .wp-block-navigation__submenu-container .wp-block-navigation-item a {
+/* Hide the default arrow for column headers */
+.is-mega-menu-column > .wp-block-navigation__submenu-icon {
+    display: none;
+}
+
+/* Style the Column Header */
+.is-mega-menu-column > .wp-block-navigation-item__content {
+    display: block;
+    width: 100%;
     font-family: var(--wp--preset--font-family--heading);
-    font-weight: 700;
     font-size: 1.25rem;
+    font-weight: 700;
     text-transform: uppercase;
+    border-bottom: 4px solid var(--wp--preset--color--black);
+    padding: 0 0 0.5rem 0 !important;
+    margin-bottom: 1rem;
+    background: none !important;
+    color: var(--wp--preset--color--black) !important;
+    pointer-events: none; /* Make header non-clickable */
 }
 
-.is-mega-menu .wp-block-navigation__submenu-container .wp-block-navigation-item a span.wp-block-navigation-item__description {
+/* The List inside the Column */
+.is-mega-menu-column > .wp-block-navigation__submenu-container {
+    display: block !important; /* Force open */
+    position: static !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    border: none !important;
+    padding: 0 !important;
+    background: transparent !important;
+    width: 100% !important;
+    transform: none !important;
+    left: auto !important;
+    top: auto !important;
+}
+
+/* Items inside the columns */
+.is-mega-menu-column .wp-block-navigation-item {
+    margin-bottom: 0.75rem;
+    display: block;
+    width: 100%;
+}
+
+.is-mega-menu-column .wp-block-navigation-item .wp-block-navigation-item__content {
+    display: block;
+    width: 100%;
+    border: 4px solid var(--wp--preset--color--black);
+    padding: 0.75rem;
+    background-color: transparent;
+    text-transform: none;
+    font-weight: 700;
+    transition: all 0.2s ease;
+}
+
+.is-mega-menu-column .wp-block-navigation-item .wp-block-navigation-item__content:hover {
+    background-color: var(--wp--preset--color--accent);
+    color: var(--wp--preset--color--black);
+}
+
+/* Description text inside items */
+.wp-block-navigation-item__description {
+    display: block;
     font-family: var(--wp--preset--font-family--body);
     font-size: 0.875rem;
-    text-transform: none;
+    font-weight: 400;
     color: var(--wp--preset--color--muted-foreground);
     margin-top: 0.25rem;
-    display: block;
+    text-transform: none;
 }
 
-.is-mega-menu .wp-block-navigation__submenu-container .wp-block-navigation-item:hover {
-    background-color: transparent;
-    opacity: 0.7;
+/* Contact Button Style */
+.is-button-style .wp-block-navigation-item__content {
+    background-color: var(--wp--preset--color--black) !important;
+    color: var(--wp--preset--color--background) !important;
 }
 
-.is-mega-menu .wp-block-navigation__submenu-container .wp-block-navigation-item:hover a {
-    color: var(--wp--preset--color--primary);
+.is-button-style .wp-block-navigation-item__content:hover {
+    background-color: var(--wp--preset--color--accent) !important;
+    color: var(--wp--preset--color--black) !important;
 }
 
-/* Responsive Adjustments */
+/* Interactions & Transitions */
+.transition-colors {
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease !important;
+}
+
+.transition-transform {
+    transition: transform 0.2s ease !important;
+}
+
+.hover\:bg-cyan-400:hover {
+    background-color: var(--wp--preset--color--accent) !important;
+}
+
+.hover\:bg-black:hover {
+    background-color: var(--wp--preset--color--black) !important;
+}
+
+.hover\:text-white:hover {
+    color: var(--wp--preset--color--background) !important;
+}
+
+.hover\:text-black:hover {
+    color: var(--wp--preset--color--black) !important;
+}
+
+.hover\:translate-y-\[-4px\]:hover {
+    transform: translateY(-4px) !important;
+}
+
+/* Group Hover Support */
+.group:hover .group-hover\:bg-white {
+    background-color: var(--wp--preset--color--background) !important;
+}
+
+.group:hover .group-hover\:text-black {
+    color: var(--wp--preset--color--black) !important;
+}
+
+.group:hover .group-hover\:scale-105 {
+    transform: scale(1.05) !important;
+}
 @media (max-width: 781px) {
     /* Adjust header padding for mobile */
     header .wp-block-group {
@@ -250,7 +426,7 @@ Text Domain: tier4
     
     .wp-block-navigation__responsive-container .wp-block-navigation-item {
         border: none;
-        border-bottom: 4px solid var(--wp--preset--color--primary);
+        border-bottom: 4px solid var(--wp--preset--color--black);
         width: 100%;
         text-align: center;
     }

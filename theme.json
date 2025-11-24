@@ -1,6 +1,6 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/theme.json",
-	"version": 2,
+	"version": 3,
 	"settings": {
 		"appearanceTools": true,
 		"layout": {
@@ -25,8 +25,18 @@
 					"name": "Accent"
 				},
 				{
+					"slug": "secondary",
+					"color": "#f4f4f5",
+					"name": "Secondary"
+				},
+				{
+					"slug": "black",
+					"color": "#000000",
+					"name": "Black"
+				},
+				{
 					"slug": "muted",
-					"color": "#e9ebef",
+					"color": "#ececf0",
 					"name": "Muted"
 				}
 			],
@@ -54,6 +64,9 @@
 		}
 	},
 	"styles": {
+		"border": {
+			"radius": "0px"
+		},
 		"typography": {
 			"fontFamily": "var(--wp--preset--font-family--body)",
 			"fontSize": "16px",
@@ -64,35 +77,39 @@
 				"typography": {
 					"fontFamily": "var(--wp--preset--font-family--heading)",
 					"fontWeight": "700",
-					"lineHeight": "1.1"
+					"lineHeight": "1.1",
+					"fontSize": "clamp(3rem, 6vw, 6rem)"
 				}
 			},
 			"h2": {
 				"typography": {
 					"fontFamily": "var(--wp--preset--font-family--heading)",
 					"fontWeight": "700",
-					"lineHeight": "1.2"
+					"lineHeight": "1.2",
+					"fontSize": "clamp(2.25rem, 4.5vw, 4.5rem)"
 				}
 			},
 			"h3": {
 				"typography": {
 					"fontFamily": "var(--wp--preset--font-family--heading)",
 					"fontWeight": "700",
-					"lineHeight": "1.2"
+					"lineHeight": "1.2",
+					"fontSize": "clamp(1.875rem, 3vw, 3rem)"
 				}
 			},
 			"h4": {
 				"typography": {
 					"fontFamily": "var(--wp--preset--font-family--heading)",
 					"fontWeight": "700",
-					"lineHeight": "1.3"
+					"lineHeight": "1.3",
+					"fontSize": "clamp(1.5rem, 2vw, 2.25rem)"
 				}
 			},
 			"button": {
 				"border": {
-					"width": "8px",
+					"width": "4px",
 					"style": "solid",
-					"color": "var(--wp--preset--color--primary)"
+					"color": "var(--wp--preset--color--black)"
 				},
 				"typography": {
 					"fontFamily": "var(--wp--preset--font-family--heading)",
@@ -111,7 +128,9 @@
 		"blocks": {
 			"core/group": {
 				"border": {
-					"style": "solid"
+					"style": "solid",
+					"color": "var(--wp--preset--color--black)",
+					"width": "0px"
 				}
 			},
 			"core/button": {
@@ -119,7 +138,7 @@
 					"radius": "0px"
 				},
 				"color": {
-					"background": "var(--wp--preset--color--primary)",
+					"background": "var(--wp--preset--color--black)",
 					"text": "var(--wp--preset--color--background)"
 				}
 			},
