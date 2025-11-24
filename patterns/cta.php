@@ -2,7 +2,7 @@
 /**
  * Title: Call to Action
  * Slug: tier4/cta
- * Categories: call-to-action
+ * Categories: tier4, call-to-action
  * Viewport Width: 1200
  */
 ?>

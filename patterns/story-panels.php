@@ -2,7 +2,7 @@
 /**
  * Title: Story Panels
  * Slug: tier4/story-panels
- * Categories: featured
+ * Categories: tier4, featured
  */
 ?>
 <!-- wp:group {"className":"border-b-8 border-black bg-cyan-400","layout":{"type":"constrained"}} -->

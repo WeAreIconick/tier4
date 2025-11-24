@@ -2,7 +2,7 @@
 /**
  * Title: Features
  * Slug: tier4/features
- * Categories: featured
+ * Categories: tier4, featured
  */
 ?>
 <!-- wp:group {"className":"border-b-8 border-black bg-white","layout":{"type":"constrained"}} -->

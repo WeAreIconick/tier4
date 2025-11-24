@@ -2,7 +2,7 @@
 /**
  * Title: Hero Section
  * Slug: tier4/hero
- * Categories: banner, featured
+ * Categories: tier4, banner, featured
  */
 ?>
 <!-- wp:group {"className":"border-b-8 border-black bg-white","layout":{"type":"constrained"}} -->

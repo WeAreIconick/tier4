@@ -2,7 +2,7 @@
 /**
  * Title: Mega Menu Content - Explore
  * Slug: tier4/mega-menu-explore
- * Categories: navigation
+ * Categories: tier4, navigation
  * Viewport Width: 1200
  */
 ?>
